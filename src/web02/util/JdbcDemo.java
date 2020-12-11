@@ -48,7 +48,7 @@ public class JdbcDemo {
             conn = JdbcUtil.getConnection();
             String sql = "select * from t_user where username = ? and password = ? ";
             psmt = conn.prepareStatement(sql);//sql语句预编译。更快、高效 .使用 ？：站位符的方式，做到防止SQL攻击
-//st = conn.createStatement();
+            //st = conn.createStatement();
             //rs = psmt.executeQuery(sql);
             //Statement 对象，需要使用字符串拼接的方式，完成变量的输入
             psmt.setString(1 , username);//参数的索引从1开始
