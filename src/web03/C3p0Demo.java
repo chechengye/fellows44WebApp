@@ -2,6 +2,7 @@ package web03;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
+import javax.sql.DataSource;
 import java.beans.PropertyVetoException;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -44,5 +45,13 @@ public class C3p0Demo {
             e.printStackTrace();
         }
         return conn;
+    }
+
+    /**
+     * 获取数据源
+     * @return
+     */
+    public static DataSource getDataSource(){
+        return dataSource;
     }
 }
