@@ -13,10 +13,11 @@ public class JdbcDemo {
     public void testFn(){
         Connection conn = null;
         Statement st = null;
+        String id = "1 or 2";
         try {
             conn = JdbcUtil.getConnection();
             st = conn.createStatement();
-            String sql = "delete from t_user where id = 1";
+            String sql = "delete from t_user where id = "+id+"";
             int rows = st.executeUpdate(sql);
             if(rows > 0){
                 System.out.println("删除成功！");
@@ -34,7 +35,7 @@ public class JdbcDemo {
     @Test
     public void testFn1(){
         //or ： 关键字，表示或者 。可能会造成SQL片段的攻击
-        login("lisi" , "1234");
+        login("lisi " , "1234");
     }
     /**
      * 登录功能

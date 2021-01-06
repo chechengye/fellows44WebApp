@@ -38,7 +38,7 @@ public class JdbcDemo {
     public void testFn1() throws SQLException {
         Connection conn = C3p0Demo.getConnection();//连接使用完毕之后会自动收回
         PreparedStatement pstm = conn.prepareStatement("delete from t_order where oid = ?");
-        pstm.setInt(1 , 1);
+        pstm.setInt(1 , 3);//索引位置从1开始的
         int rows = pstm.executeUpdate();
         if (0 < rows) {
             System.out.println("删除订单成功!");
@@ -87,5 +87,13 @@ public class JdbcDemo {
         //long : 数据库中数据条数可能很大，5000万条以上数据
         long l = (long)qr.query("select count(*) from t_user", new ScalarHandler());
         System.out.println("数量为 : " + l);
+
+        System.out.println("----------------------------------------");
+        int rows = qr.update("update t_user set password = ? where id = ?", "qwe123", 4);
+        if(rows > 0){
+            System.out.println("更新成功！");
+        }else{
+            System.out.println("更新失败！");
+        }
     }
 }
