@@ -32,7 +32,7 @@ public class LoginServlet extends HttpServlet{
             System.out.println("LoginServlet : " + username);
             String password = req.getParameter("password");
             QueryRunner qr = new QueryRunner(C3p0Demo.getDataSource());
-            User user = qr.query("select * from t_user u where u.username = ? and u.password = ?"
+            User user = qr.query("select * from t_user u where u.username = ? and u.password = ? and u.is_delete != 1"
                     , new BeanHandler<>(User.class), username, password);
             if(null != user){
                 System.out.println("登录成功！");
