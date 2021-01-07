@@ -17,7 +17,9 @@ public class ServletContextDemo extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        ////使用域对象取值
+        //使用域对象取值
+        req.setCharacterEncoding("utf-8");
         System.out.println(this.getServletContext().getAttribute("name"));
+        System.out.println("name = " + req.getAttribute("user"));
     }
 }
