@@ -6,6 +6,10 @@
     <welcome-file-list>
         <welcome-file>test.html</welcome-file>
     </welcome-file-list>
+    <context-param>
+        <param-name>contentConfig</param-name>
+        <param-value>dsjdjs</param-value>
+    </context-param>
 
     <servlet>
         <servlet-name>QuickStartServlet</servlet-name>

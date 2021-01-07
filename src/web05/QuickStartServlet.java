@@ -18,6 +18,8 @@ public class QuickStartServlet implements Servlet{
         System.out.println("init is called !!!");
         System.out.println(servletConfig.getServletName());
         System.out.println(servletConfig.getInitParameter("key"));
+        ServletContext servletContext = servletConfig.getServletContext();
+
     }
 
     @Override
