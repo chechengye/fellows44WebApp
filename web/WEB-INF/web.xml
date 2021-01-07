@@ -7,5 +7,31 @@
         <welcome-file>test.html</welcome-file>
     </welcome-file-list>
 
+    <servlet>
+        <servlet-name>QuickStartServlet</servlet-name>
+        <servlet-class>web05.QuickStartServlet</servlet-class>
+        <init-param>
+            <param-name>key</param-name>
+            <param-value>uploads/head</param-value>
+        </init-param>
+        <!--设定tomcat引擎初始化servlet的时机，正整数越小优先级越大，不建议设定为1-->
+        <load-on-startup>3</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <!--匹配/找寻servlet标签中 配置好的servlet-name -->
+        <servlet-name>QuickStartServlet</servlet-name>
+        <!--映射路径/路由 供前端调用-->
+        <!--全路径匹配-->
+        <url-pattern>/quickStart</url-pattern>
+        <!--虚拟目录匹配-->
+        <url-pattern>/xx/yy/*</url-pattern>
+        <!--扩展名匹配-->
+        <url-pattern>*.servlet</url-pattern>
+        <!--缺省的servelt 不建议配置-->
+        <!--<url-pattern>/</url-pattern>-->
+    </servlet-mapping>
+
+
 
 </web-app>
