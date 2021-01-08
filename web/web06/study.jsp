@@ -16,7 +16,8 @@
     errorPage : 指定错误页面，若本页面出现异常，会内容转发方式跳转到该页面
     isErrorPage : 标记页面是否为处理错误的页面
 -->
-<%@ page contentType="text/html;charset=UTF-8" language="java" session="true" errorPage="/web06/error.jsp" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java"
+         errorPage="/web06/error.jsp" buffer="0kb" %>
 <html>
 <head>
     <title>JSP讲解</title>
@@ -53,7 +54,31 @@
     <%
         method();
         List<String> list = new ArrayList<>();
-        int arr = 10 / 0;
+        //int arr = 10 / 0;
+    %>
+
+    <hr>
+    <!--默认优先存入out缓存区-->
+    bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+    <%
+        out.write("aaaaaaaaaaaaaaaaaaaaaaaaa");
+        response.getWriter().write("ddddddddddddddddddddddddddd");
+    %>
+    <%="cccccccccccccccccccccccccccccccc"%>
+
+    <hr>
+    <!--pageContext操作域-->
+    <%
+        //pageContext.setAttribute("name" , "zhangsan" , PageContext.REQUEST_SCOPE);//request.setAttribute()
+        //pageContext.setAttribute("name","lisi");//向页面域中存值
+        //pageContext.setAttribute("name","wangwu",PageContext.SESSION_SCOPE);
+        pageContext.setAttribute("name","zhaoliu",PageContext.APPLICATION_SCOPE);
+        System.out.println(pageContext.getAttribute("name", PageContext.REQUEST_SCOPE));
+        System.out.println("-----------------------");
+        //优先取page域中的值 < request域 < session域 < application域
+        System.out.println(pageContext.findAttribute("name"));
+
+
     %>
 </body>
 </html>
