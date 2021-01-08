@@ -7,9 +7,7 @@ import web05.pojo.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -36,6 +34,11 @@ public class LoginServlet extends HttpServlet{
                     , new BeanHandler<>(User.class), username, password);
             if(null != user){
                 System.out.println("登录成功！");
+                HttpSession session = req.getSession();
+                session.setAttribute("user",user);
+                Cookie cookie = new Cookie("JSESSIONID" , session.getId());
+                cookie.setMaxAge(60*60);
+                resp.addCookie(cookie);
                 resp.sendRedirect("/index.html");
             }else{
                 System.out.println("登录失败！");

@@ -37,5 +37,8 @@
     </servlet-mapping>
 
 
-
+    <session-config>
+        <!--单位是分钟-->
+        <session-timeout>60</session-timeout>
+    </session-config>
 </web-app>
