@@ -44,7 +44,7 @@
     ${pageContext.request.contextPath} <!--相当于 request.getContextPath()-->
     <hr>
     <!--jstl应用-->
-    <c:forEach begin="0" end="10" var="i"> <!--jstl的var变量。相当于向page域中存于key值了-->
+    <c:forEach begin="0" end="10" var="i"> <!--jstl的var变量。相当于向page域中存入key值了-->
         <c:if test="${i == 5}">
             ${i + 20}
         </c:if>

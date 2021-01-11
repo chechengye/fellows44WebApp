@@ -39,7 +39,7 @@ public class LoginServlet extends HttpServlet{
                 Cookie cookie = new Cookie("JSESSIONID" , session.getId());
                 cookie.setMaxAge(60*60);
                 resp.addCookie(cookie);
-                resp.sendRedirect("/index.html");
+                resp.sendRedirect(req.getContextPath() + "/index.jsp");
             }else{
                 System.out.println("登录失败！");
                 req.setAttribute("loginInfo" ,"用户名或密码错误！");
