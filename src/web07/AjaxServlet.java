@@ -14,12 +14,13 @@ public class AjaxServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
         resp.setContentType("text/html;charset=utf-8");
-        try {
+        /*try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
-        resp.getWriter().write(Math.random() + "");
+        }*/
+        System.out.println("name = " + req.getParameter("name"));
+        resp.getWriter().write("{\"name\":\"ceshi\"}");
     }
 
     @Override
